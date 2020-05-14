@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                       ),
                       Container(
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             Container(
                               child: DropdownButton<String>(
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
                                     color: Colors.white),
                                 iconSize: 24,
                                 elevation: 16,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black54),
                                 underline: Container(
                                   height: 2,
                                   color: Colors.white,
@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
                                     color: Colors.white),
                                 iconSize: 24,
                                 elevation: 16,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black54),
                                 underline: Container(
                                   height: 2,
                                   color: Colors.white,
@@ -145,7 +145,7 @@ class _HomeState extends State<Home> {
                                 ),
                                 iconSize: 24,
                                 elevation: 16,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black54),
                                 underline: Container(
                                   height: 2,
                                   color: Colors.white,
