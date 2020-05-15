@@ -40,7 +40,7 @@ class PropertyCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          'Product Title',
+                          propertyData['title']['rendered'],
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
