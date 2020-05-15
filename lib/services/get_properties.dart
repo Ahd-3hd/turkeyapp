@@ -4,7 +4,6 @@ import 'dart:convert';
 class GetProperties {
   List myData;
   Future<void> getData() async {
-    // make the request
     Response response = await get(
         'https://myturkeyproperty.com/wp-json/wp/v2/posts?per_page=100&_fields[]=acf&_fields[]=title&_fields[]=id');
     myData = json.decode(response.body);

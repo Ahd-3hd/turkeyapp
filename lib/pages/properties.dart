@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:turkey/components/property_card.dart';
+import 'package:turkey/services/get_properties.dart';
 
 class PropertiesPage extends StatefulWidget {
   final List<String> searchValues;
@@ -13,10 +14,30 @@ class PropertiesPage extends StatefulWidget {
 
 class _PropertiesPageState extends State<PropertiesPage> {
   List<String> searchValues;
+  List properties;
+  List extractedData;
+  bool isLoading;
+  bool isContainingResult;
+  void getProperties() async {
+    GetProperties instance = GetProperties();
+    await instance.getData();
+    setState(() {
+      properties = instance.myData;
+      extractedData = properties;
+      isLoading = false;
+      print(properties);
+      extractedData.length > 0
+          ? isContainingResult = true
+          : isContainingResult = false;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    isLoading = false;
     searchValues = this.widget.searchValues;
+    getProperties();
   }
 
   @override
