@@ -35,7 +35,7 @@ class _PropertiesPageState extends State<PropertiesPage> {
   @override
   void initState() {
     super.initState();
-    isLoading = false;
+    isLoading = true;
     searchValues = this.widget.searchValues;
     getProperties();
   }
@@ -55,9 +55,22 @@ class _PropertiesPageState extends State<PropertiesPage> {
           ],
         ),
       ),
-      body: ListView(children: [
-        PropertyCard(),
-      ]),
+      body: isLoading
+          ? Center(
+              child: Text(
+                'Loading ...',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.pink[900],
+                ),
+              ),
+            )
+          : ListView(
+              children: [
+                PropertyCard(),
+              ],
+            ),
     );
   }
 }
