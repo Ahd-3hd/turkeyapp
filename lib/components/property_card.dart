@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PropertyCard extends StatelessWidget {
-  final bool isEligible = false;
   final Map propertyData;
   PropertyCard({Key key, @required this.propertyData}) : super(key: key);
   @override
@@ -23,7 +22,7 @@ class PropertyCard extends StatelessWidget {
                   propertyData['acf']['image_one'],
                   fit: BoxFit.cover,
                 ),
-                if (isEligible)
+                if (int.parse(propertyData['acf']['price']) >= 25000)
                   Positioned(
                     width: 70,
                     child: Image.asset(
