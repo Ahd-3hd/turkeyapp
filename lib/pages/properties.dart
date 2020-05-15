@@ -67,9 +67,9 @@ class _PropertiesPageState extends State<PropertiesPage> {
               ),
             )
           : ListView(
-              children: [
-                PropertyCard(),
-              ],
+              children: properties
+                  .map((single) => PropertyCard(propertyData: single))
+                  .toList(),
             ),
     );
   }

@@ -3,7 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PropertyCard extends StatelessWidget {
   final bool isEligible = false;
-
+  final Map propertyData;
+  PropertyCard({Key key, @required this.propertyData}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
