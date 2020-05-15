@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color(0xff6C54FF),
       )),
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
