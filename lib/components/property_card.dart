@@ -10,9 +10,8 @@ class PropertyCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10.0),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).pushNamed(
-            '/properties/single',
-          );
+          Navigator.of(context)
+              .pushNamed('/properties/single', arguments: propertyData);
         },
         child: Card(
           child: Column(

@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SinglePage extends StatefulWidget {
+class SinglePage extends StatelessWidget {
   final Map propertyData;
   SinglePage({Key key, @required this.propertyData}) : super(key: key);
-
-  @override
-  _SinglePageState createState() => _SinglePageState();
-}
-
-class _SinglePageState extends State<SinglePage> {
   @override
   Widget build(BuildContext context) {
+    print(propertyData);
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -27,3 +22,33 @@ class _SinglePageState extends State<SinglePage> {
     );
   }
 }
+
+// class SinglePage extends StatefulWidget {
+//   final Map propertyData;
+//   SinglePage({Key key, @required this.propertyData}) : super(key: key);
+
+//   @override
+//   _SinglePageState createState() => _SinglePageState();
+// }
+
+// class _SinglePageState extends State<SinglePage> {
+//   final Map propertyDataa = this.widget.propertyData;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Row(
+//           mainAxisAlignment: MainAxisAlignment.end,
+//           children: [
+//             Text(propertyDataa['title']['rendered']),
+//             Image.asset(
+//               'assets/logo.png',
+//               fit: BoxFit.contain,
+//               height: 45,
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
