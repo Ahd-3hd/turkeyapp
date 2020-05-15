@@ -13,12 +13,10 @@ class PropertiesPage extends StatefulWidget {
 
 class _PropertiesPageState extends State<PropertiesPage> {
   List<String> searchValues;
-  bool isEligible;
   @override
   void initState() {
     super.initState();
     searchValues = this.widget.data;
-    isEligible = false;
   }
 
   @override
@@ -37,7 +35,7 @@ class _PropertiesPageState extends State<PropertiesPage> {
         ),
       ),
       body: ListView(children: [
-        PropertyCard(isEligible: isEligible),
+        PropertyCard(),
       ]),
     );
   }
