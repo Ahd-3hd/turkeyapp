@@ -148,7 +148,10 @@ class _HomeSearchState extends State<HomeSearch> {
                 RaisedButton(
                   color: const Color(0xff2A3143),
                   onPressed: () {
-                    print('searching');
+                    Navigator.of(context).pushNamed(
+                      '/properties',
+                      arguments: [locationValue, typeValue, priceValue],
+                    );
                   },
                   child: Text(
                     'SEARCH',
