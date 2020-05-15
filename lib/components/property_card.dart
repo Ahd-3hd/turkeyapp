@@ -91,7 +91,7 @@ class PropertyCard extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Text(
-                                '120 ft/sq',
+                                '${propertyData['acf']['size']} ft/sq',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blueGrey[600],
@@ -111,7 +111,7 @@ class PropertyCard extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Text(
-                                '2',
+                                propertyData['acf']['bedrooms'],
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blueGrey[600],
@@ -131,7 +131,7 @@ class PropertyCard extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Text(
-                                '2',
+                                propertyData['acf']['bathrooms'],
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blueGrey[600],
@@ -151,7 +151,7 @@ class PropertyCard extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Text(
-                                'Villa',
+                                propertyData['acf']['type'],
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blueGrey[600],
