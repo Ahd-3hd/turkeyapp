@@ -67,7 +67,7 @@ class PropertyCard extends StatelessWidget {
                           color: Colors.blueGrey[600],
                         ),
                         Text(
-                          ' Istanbul',
+                          ' ${propertyData['acf']['location']}',
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
