@@ -48,7 +48,7 @@ class _HomeSearchState extends State<HomeSearch> {
                         child: DropdownButton<String>(
                           value: locationValue,
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
-                          iconSize: 24,
+                          iconSize: 15,
                           elevation: 16,
                           style: TextStyle(color: Colors.black54),
                           underline: Container(
@@ -78,7 +78,7 @@ class _HomeSearchState extends State<HomeSearch> {
                         child: DropdownButton<String>(
                           value: typeValue,
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
-                          iconSize: 24,
+                          iconSize: 15,
                           elevation: 16,
                           style: TextStyle(color: Colors.black54),
                           underline: Container(
@@ -110,7 +110,7 @@ class _HomeSearchState extends State<HomeSearch> {
                             Icons.arrow_downward,
                             color: Colors.white,
                           ),
-                          iconSize: 24,
+                          iconSize: 15,
                           elevation: 16,
                           style: TextStyle(color: Colors.black54),
                           underline: Container(
