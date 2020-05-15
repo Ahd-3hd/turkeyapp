@@ -20,7 +20,9 @@ class RouteGenerator {
         );
       case '/properties/single':
         return MaterialPageRoute(
-          builder: (_) => SinglePage(),
+          builder: (_) => SinglePage(
+            propertyData: args,
+          ),
         );
       default:
         return _errorRoute();
