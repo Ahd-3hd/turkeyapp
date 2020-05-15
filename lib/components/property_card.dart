@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PropertyCard extends StatelessWidget {
-  bool isEligible = false;
+  final bool isEligible = false;
 
   @override
   Widget build(BuildContext context) {
