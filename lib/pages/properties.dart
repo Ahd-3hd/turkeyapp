@@ -13,10 +13,12 @@ class PropertiesPage extends StatefulWidget {
 
 class _PropertiesPageState extends State<PropertiesPage> {
   List<String> searchValues;
+  bool isEligible;
   @override
   void initState() {
     super.initState();
     searchValues = this.widget.data;
+    isEligible = false;
   }
 
   @override
@@ -38,12 +40,20 @@ class _PropertiesPageState extends State<PropertiesPage> {
         Card(
           child: Column(
             children: <Widget>[
-              Container(
-                child: Image.asset(
+              Stack(children: <Widget>[
+                Image.asset(
                   'assets/test.jpg',
                   fit: BoxFit.cover,
                 ),
-              ),
+                if (isEligible)
+                  Positioned(
+                    width: 70,
+                    child: Image.asset(
+                      'assets/passport.png',
+                    ),
+                    right: 0,
+                  )
+              ]),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
