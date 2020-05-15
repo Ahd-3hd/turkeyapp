@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turkey/pages/home.dart';
 import 'package:turkey/pages/properties.dart';
+import 'package:turkey/pages/single_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -14,8 +15,12 @@ class RouteGenerator {
         // Validation of correct data type
         return MaterialPageRoute(
           builder: (_) => PropertiesPage(
-            data: args,
+            searchValues: args,
           ),
+        );
+      case '/property/single':
+        return MaterialPageRoute(
+          builder: (_) => SinglePage(),
         );
       default:
         return _errorRoute();
