@@ -48,7 +48,7 @@ class PropertyCard extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'EUR 54622',
+                          "${propertyData['acf']['base_currency']} ${propertyData['acf']['price']}",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
