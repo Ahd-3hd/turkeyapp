@@ -19,8 +19,8 @@ class PropertyCard extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Stack(children: <Widget>[
-                Image.asset(
-                  'assets/test.jpg',
+                Image.network(
+                  propertyData['acf']['image_one'],
                   fit: BoxFit.cover,
                 ),
                 if (isEligible)
