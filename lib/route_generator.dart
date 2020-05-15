@@ -18,7 +18,7 @@ class RouteGenerator {
             searchValues: args,
           ),
         );
-      case '/property/single':
+      case '/properties/single':
         return MaterialPageRoute(
           builder: (_) => SinglePage(),
         );
