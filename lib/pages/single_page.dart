@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart';
+import 'dart:convert';
 
 class SinglePage extends StatefulWidget {
   final Map propertyData;
@@ -11,6 +13,27 @@ class SinglePage extends StatefulWidget {
 }
 
 class _SinglePageState extends State<SinglePage> {
+  String username;
+  String userphone;
+  String useremail;
+  String usermsg;
+  bool isMessageSent = false;
+  Future<bool> handleComment() async {
+    Response response = await post(
+        'https://www.myturkeyproperty.com/wp-json/contact-form-7/v1/contact-forms/516/feedback',
+        body: {
+          'testrestname': username,
+          'testrestphone': userphone,
+          'testrestemail': useremail,
+          'testrestmsg': usermsg,
+          'propertytitle': widget.propertyData['title']['rendered']
+        });
+    setState(() {
+      isMessageSent = json.decode(response.body)['status'] == 'mail_sent';
+    });
+    return json.decode(response.body)['status'] == 'mail_sent';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -224,9 +247,16 @@ class _SinglePageState extends State<SinglePage> {
                         height: 40,
                         width: 250,
                         child: TextField(
+                          onChanged: (text) {
+                            setState(() {
+                              username = text;
+                            });
+                          },
                           maxLines: 1,
                           decoration: InputDecoration(
-                            labelText: 'Name',
+                            labelText: username != null && username?.length > 0
+                                ? ''
+                                : 'Name',
                             filled: true,
                             fillColor: Colors.white,
                             prefixIcon: Icon(
@@ -240,9 +270,17 @@ class _SinglePageState extends State<SinglePage> {
                         height: 40,
                         width: 250,
                         child: TextField(
+                          onChanged: (text) {
+                            setState(() {
+                              useremail = text;
+                            });
+                          },
                           maxLines: 1,
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText:
+                                useremail != null && useremail?.length > 0
+                                    ? ''
+                                    : 'Email',
                             filled: true,
                             fillColor: Colors.white,
                             prefixIcon: Icon(
@@ -256,9 +294,17 @@ class _SinglePageState extends State<SinglePage> {
                         height: 40,
                         width: 250,
                         child: TextField(
+                          onChanged: (text) {
+                            setState(() {
+                              userphone = text;
+                            });
+                          },
                           maxLines: 1,
                           decoration: InputDecoration(
-                            labelText: 'Phone',
+                            labelText:
+                                userphone != null && userphone?.length > 0
+                                    ? ''
+                                    : 'Phone No.',
                             filled: true,
                             fillColor: Colors.white,
                             prefixIcon: Icon(
@@ -272,9 +318,16 @@ class _SinglePageState extends State<SinglePage> {
                         height: 40,
                         width: 250,
                         child: TextField(
+                          onChanged: (text) {
+                            setState(() {
+                              usermsg = text;
+                            });
+                          },
                           maxLines: 1,
                           decoration: InputDecoration(
-                            labelText: 'Message',
+                            labelText: usermsg != null && usermsg?.length > 0
+                                ? ''
+                                : 'Message',
                             filled: true,
                             fillColor: Colors.white,
                             prefixIcon: Icon(
@@ -285,14 +338,19 @@ class _SinglePageState extends State<SinglePage> {
                       ),
                       Container(
                         child: FlatButton(
-                          onPressed: () {
-                            print('supp');
+                          onPressed: () async {
+                            await handleComment();
                           },
                           child: Text(
-                            'SEND',
-                            style: TextStyle(color: Colors.white),
+                            isMessageSent ? 'Message Sent' : 'Send',
+                            style: TextStyle(
+                                color: isMessageSent
+                                    ? Colors.white
+                                    : Colors.white),
                           ),
-                          color: const Color(0xff2A3143),
+                          color: isMessageSent
+                              ? Colors.green[300]
+                              : const Color(0xff2A3143),
                         ),
                       ),
                     ],
