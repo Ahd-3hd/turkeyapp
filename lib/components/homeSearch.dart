@@ -6,9 +6,9 @@ class HomeSearch extends StatefulWidget {
 }
 
 class _HomeSearchState extends State<HomeSearch> {
-  String locationValue = 'Location';
-  String typeValue = 'Type';
-  String priceValue = 'Max Price';
+  String locationValue;
+  String typeValue;
+  String priceValue;
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -50,18 +50,20 @@ class _HomeSearchState extends State<HomeSearch> {
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
                           iconSize: 15,
                           elevation: 16,
+                          hint: Text('Location'),
                           style: TextStyle(color: Colors.black54),
                           underline: Container(
                             height: 2,
                             color: Colors.white,
                           ),
                           onChanged: (String newValue) {
-                            setState(() {
-                              locationValue = newValue;
-                            });
+                            if (newValue != 'Location') {
+                              setState(() {
+                                locationValue = newValue;
+                              });
+                            }
                           },
                           items: <String>[
-                            'Location',
                             'Antalia',
                             'Bursa',
                             'Fethiye',
@@ -81,17 +83,19 @@ class _HomeSearchState extends State<HomeSearch> {
                           iconSize: 15,
                           elevation: 16,
                           style: TextStyle(color: Colors.black54),
+                          hint: Text('Type'),
                           underline: Container(
                             height: 2,
                             color: Colors.white,
                           ),
                           onChanged: (String newValue) {
-                            setState(() {
-                              typeValue = newValue;
-                            });
+                            if (newValue != 'Type') {
+                              setState(() {
+                                typeValue = newValue;
+                              });
+                            }
                           },
                           items: <String>[
-                            'Type',
                             'Apartment',
                             'Penthouse',
                             'Villa',
@@ -112,18 +116,20 @@ class _HomeSearchState extends State<HomeSearch> {
                           ),
                           iconSize: 15,
                           elevation: 16,
+                          hint: Text('Max Price'),
                           style: TextStyle(color: Colors.black54),
                           underline: Container(
                             height: 2,
                             color: Colors.white,
                           ),
                           onChanged: (String newValue) {
-                            setState(() {
-                              priceValue = newValue;
-                            });
+                            if (newValue != 'Max Price') {
+                              setState(() {
+                                priceValue = newValue;
+                              });
+                            }
                           },
                           items: <String>[
-                            'Max Price',
                             '50000',
                             '100000',
                             '150000',
@@ -148,9 +154,20 @@ class _HomeSearchState extends State<HomeSearch> {
                 RaisedButton(
                   color: const Color(0xff2A3143),
                   onPressed: () {
+                    List searchValues = [];
+                    locationValue != null
+                        ? searchValues.add(['location', locationValue])
+                        : null;
+                    typeValue != null
+                        ? searchValues.add(['type', typeValue])
+                        : null;
+                    priceValue != null
+                        ? searchValues.add(['price', priceValue])
+                        : null;
+
                     Navigator.of(context).pushNamed(
                       '/properties',
-                      arguments: [locationValue, typeValue, priceValue],
+                      arguments: searchValues,
                     );
                   },
                   child: Text(
