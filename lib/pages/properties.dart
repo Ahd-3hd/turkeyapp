@@ -25,9 +25,6 @@ class _PropertiesPageState extends State<PropertiesPage> {
       properties = instance.myData;
       extractedData = properties;
       isLoading = false;
-      extractedData.length > 0
-          ? isContainingResult = true
-          : isContainingResult = false;
     });
     filterProperties();
   }
@@ -48,6 +45,9 @@ class _PropertiesPageState extends State<PropertiesPage> {
     }).toList();
     setState(() {
       extractedData = newData;
+      extractedData.length > 0
+          ? isContainingResult = true
+          : isContainingResult = false;
     });
   }
 
@@ -85,11 +85,15 @@ class _PropertiesPageState extends State<PropertiesPage> {
                 ),
               ),
             )
-          : ListView(
-              children: extractedData
-                  .map((single) => PropertyCard(propertyData: single))
-                  .toList(),
-            ),
+          : isContainingResult
+              ? ListView(
+                  children: extractedData
+                      .map((single) => PropertyCard(propertyData: single))
+                      .toList(),
+                )
+              : Center(
+                  child: Text('No Results Match..'),
+                ),
     );
   }
 }
