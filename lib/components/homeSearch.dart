@@ -57,13 +57,18 @@ class _HomeSearchState extends State<HomeSearch> {
                             color: Colors.white,
                           ),
                           onChanged: (String newValue) {
-                            if (newValue != 'Location') {
+                            if (newValue != 'Any') {
                               setState(() {
                                 locationValue = newValue;
+                              });
+                            } else {
+                              setState(() {
+                                locationValue = null;
                               });
                             }
                           },
                           items: <String>[
+                            'Any',
                             'Antalia',
                             'Bursa',
                             'Fethiye',
@@ -89,13 +94,18 @@ class _HomeSearchState extends State<HomeSearch> {
                             color: Colors.white,
                           ),
                           onChanged: (String newValue) {
-                            if (newValue != 'Type') {
+                            if (newValue != 'Any') {
                               setState(() {
                                 typeValue = newValue;
+                              });
+                            } else {
+                              setState(() {
+                                typeValue = null;
                               });
                             }
                           },
                           items: <String>[
+                            'Any',
                             'Apartment',
                             'Penthouse',
                             'Villa',
@@ -123,13 +133,18 @@ class _HomeSearchState extends State<HomeSearch> {
                             color: Colors.white,
                           ),
                           onChanged: (String newValue) {
-                            if (newValue != 'Max Price') {
+                            if (newValue != 'Any') {
                               setState(() {
                                 priceValue = newValue;
+                              });
+                            } else {
+                              setState(() {
+                                priceValue = null;
                               });
                             }
                           },
                           items: <String>[
+                            'Any',
                             '50000',
                             '100000',
                             '150000',
